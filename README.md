@@ -1,6 +1,6 @@
 # 🌱 AgriMall - Farm-to-Market Digital Marketplace
 
-**Live Demo:** [https://agrimall.netlify.com](https://agrimall.netlify.com)
+**Live Demo:** [https://agrimallmv.netlify.app]
 
 ## 📋 Project Description
 AgriMall is a digital marketplace connecting smallholder farmers directly with buyers, eliminating middlemen and promoting fair trade. This platform reduces post-harvest losses, ensures fair pricing, and strengthens local food systems in Kenya and developing countries.
