@@ -45,12 +45,45 @@ const BuyerDashboard = () => {
 
                                                                                                                                                                 // Place order
                                                                                                                                                                   const placeOrder = async () => {
-                                                                                                                                                                      if (cart.length === 0) {
-                                                                                                                                                                            alert('Your cart is empty!');
-                                                                                                                                                                                  return;
-                                                                                                                                                                                      }
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
 
-                                                                                                                                                                                      try {
+  // Simulate M-Pesa payment process
+  const phoneNumber = prompt('Enter your M-Pesa phone number (e.g., 254712345678):');
+  if (!phoneNumber) {
+    alert('Payment cancelled. Phone number is required.');
+    return;
+  }
+
+  try {
+    // Show payment processing
+    alert(`M-Pesa payment request sent to ${phoneNumber}. Please check your phone to complete payment.`);
+    
+    // Simulate payment delay
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    
+    // Create order after "payment"
+    await addDoc(collection(db, 'orders'), {
+      buyerId: auth.currentUser.uid,
+      buyerEmail: auth.currentUser.email,
+      buyerPhone: phoneNumber,
+      items: cart,
+      totalAmount: cart.reduce((total, item) => total + (item.price * item.quantity), 0),
+      status: 'paid',
+      paymentMethod: 'M-Pesa',
+      paymentStatus: 'completed',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+    
+    alert('✅ Payment successful! Your order has been placed.');
+    setCart([]);
+  } catch (error) {
+    alert('Error placing order: ' + error.message);
+  }
+};
                                                                                                                                                                                               await addDoc(collection(db, 'orders'), {
                                                                                                                                                                                                       buyerId: auth.currentUser.uid,
                                                                                                                                                                                                               buyerEmail: auth.currentUser.email,
