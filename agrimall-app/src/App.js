@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { auth, db } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-import Auth from './components/Auth';
+import LandingPage from './components/LandingPage';
 import FarmerDashboard from './components/FarmerDashboard';
 import BuyerDashboard from './components/BuyerDashboard';
 import './App.css';
@@ -67,7 +67,7 @@ function App() {
                                                                                                                                                                                                                                                                                         }
 
                                                                                                                                                                                                                                                                                           if (!user) {
-                                                                                                                                                                                                                                                                                              return <Auth />;
+                                                                                                                                                                                                                                                                                              return <LandingPage />;
                                                                                                                                                                                                                                                                                                 }
 
                                                                                                                                                                                                                                                                                                   return (
