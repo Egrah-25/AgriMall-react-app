@@ -77,22 +77,6 @@ const BuyerDashboard = () => {
       createdAt: new Date(),
       updatedAt: new Date()
     });
-    
-    alert('✅ Payment successful! Your order has been placed.');
-    setCart([]);
-  } catch (error) {
-    alert('Error placing order: ' + error.message);
-  }
-};
-                                                                                                                                                                                              await addDoc(collection(db, 'orders'), {
-                                                                                                                                                                                                      buyerId: auth.currentUser.uid,
-                                                                                                                                                                                                              buyerEmail: auth.currentUser.email,
-                                                                                                                                                                                                                      items: cart,
-                                                                                                                                                                                                                              totalAmount: cart.reduce((total, item) => total + (item.price * item.quantity), 0),
-                                                                                                                                                                                                                                      status: 'pending',
-                                                                                                                                                                                                                                              createdAt: new Date(),
-                                                                                                                                                                                                                                                      updatedAt: new Date()
-                                                                                                                                                                                                                                                            });
                                                                                                                                                                                                                                                                   
                                                                                                                                                                                                                                                                         alert('Order placed successfully!');
                                                                                                                                                                                                                                                                               setCart([]);
